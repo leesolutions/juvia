@@ -12,6 +12,7 @@
 		</div>
 	<% elsif comments.size > 1 %>
 		<h3 class="juvia-comment-count-header"><%= comments.size %> comments</h3>
+    <%= link_to "Read all comments"%>
 		<div class="juvia-comments">
 			<%= render :partial => 'comment', :collection => comments %>
 		</div>
