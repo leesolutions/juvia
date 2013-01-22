@@ -7,4 +7,8 @@ module ApiHelper
   	raise "'@jsonp' must be set!" if !@jsonp
   	"#{@jsonp}(#{options.to_json})".html_safe
   end
+
+  def define(value)
+    block_given?? yield(value) : value
+  end
 end

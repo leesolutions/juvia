@@ -4,22 +4,18 @@
 	data-topic-title="<%= @topic_title %>"
 	data-topic-url="<%= @topic_url %>">
 <div class="juvia-topic">
-	<% comments = topic.comments.visible.recent(3).to_a %>
-	<% if comments.size == 1 %>
-		<h3 class="juvia-comment-count-header">1 comment</h3>
-		<div class="juvia-comments">
-			<%= render :partial => 'comment', :collection => comments %>
-		</div>
-	<% elsif comments.size > 1 %>
-		<h3 class="juvia-comment-count-header"><%= comments.size %> comments</h3>
-    <%= link_to "Read all comments"%>
-		<div class="juvia-comments">
-			<%= render :partial => 'comment', :collection => comments %>
-		</div>
-	<% else %>
-		<div class="juvia-comments juvia-no-comments">There are no comments yet.</div>
-	<% end %>
-	
+  <% define(topic.comments) do |comments| %>
+    <h3 class="juvia-comment-count-header"><%= comments.size %> comments</h3>
+    <%= link_to "Read all comments" if comments.size > 3 %>
+    <% if comments.empty? %>
+      <div class="juvia-comments juvia-no-comments">There are no comments yet.</div>
+    <% else %>
+      <div class="juvia-comments">
+        <%= render :partial => 'comment', :collection => comments.recent(3)%>
+      </div>
+    <% end %>
+  <% end %>
+
 	<h3>Add comment</h3>
 	<%= render :partial => 'form' %>
 </div>
