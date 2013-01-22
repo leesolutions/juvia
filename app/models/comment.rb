@@ -12,6 +12,7 @@ class Comment < ActiveRecord::Base
   
   scope :visible, where(:moderation_status => moderation_status(:ok))
   scope :requiring_moderation, where("moderation_status != #{moderation_status(:ok)}")
+  scope :recent, lambda {|n| last(n).reverse}
   
   validates_presence_of :content
   validates_presence_of :author_ip
