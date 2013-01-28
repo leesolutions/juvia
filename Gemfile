@@ -23,6 +23,7 @@ gem 'inherited_resources'
 gem 'bcrypt-ruby'
 
 group :development do
+  gem 'letter_opener'
   gem 'guard-livereload'
 end
 

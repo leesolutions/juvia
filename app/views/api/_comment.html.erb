@@ -1,28 +1,4 @@
-<div class="juvia-comment" id="juvia-comment-<%= comment.id %>">
-	<div class="juvia-metadata">
-		<% if comment.author_email %>
-			<div class="juvia-avatar">
-				<img src="//www.gravatar.com/avatar/<%= comment.author_email_md5 %>?s=64"
-				width="64"
-				height="64"
-				alt="<%= comment.author_name || 'Anonymous' %>">
-			</div>
-		<% else %>
-			<div class="juvia-avatar">
-				<img src="http://www.gravatar.com/avatar/generic?s=64"
-				width="64"
-				height="64"
-				alt="<%= comment.author_name || 'Anonymous' %>">
-			</div>
-		<% end %>
-		<div class="juvia-author juvia-author-without-email">
-			<%= comment.author_name || 'Anonymous' %>
-		</div>
-		<div class="juvia-creation-date">
-			<%= comment.created_at.strftime("%B %d %Y, %H:%M") %>
-		</div>
-		<div class="juvia-end"></div>
-	</div>
+<div class="comment" id="juvia-comment-<%= comment.id %>">
 	<div class="juvia-data">
 		<div class="juvia-comment-content">
 			<% if comment.moderation_status != :ok %>
@@ -33,7 +9,13 @@
 				</p>
 			<% end %>
 			<div class="juvia-comment-pure-content"><%= render_markdown(comment.content) %></div>
-			<p class="juvia-reply-to-comment"><a href="javascript:void(0)">Reply to this comment</a></p>
 		</div>
 	</div>
+	<div class="metadata">
+    <span class="name"><%= comment.author_name || 'Anonymous' %></span>
+    |
+    <span class="datetime"><%= comment.created_at.strftime("%l:%M %P, %B %e, %Y") %></span>
+    <br/>
+    [<a href="javascript:void(0)">reply to this comment</a>]
+  </div>
 </div>
