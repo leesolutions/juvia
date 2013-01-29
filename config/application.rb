@@ -16,7 +16,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-JUVIA_GITHUB_PAGE = "https://github.com/phusion/juvia"
+JUVIA_GITHUB_PAGE = "https://github.com/leesolutions/juvia"
 
 module Juvia
   class Application < Rails::Application
