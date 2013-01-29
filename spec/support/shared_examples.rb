@@ -14,6 +14,13 @@ shared_examples "doesn't require authentication" do
   end
 end
 
+shared_examples "returns a successful response" do
+  it "returns a successful response" do
+    visit_normally
+    response.status.should == 200
+  end
+end
+
 # Precondition: not logged in
 shared_examples "requires administrator rights" do
   it "requires administrator rights" do
@@ -22,4 +29,3 @@ shared_examples "requires administrator rights" do
     response.should render_template("shared/admin_required")
   end
 end
-

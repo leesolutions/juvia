@@ -43,13 +43,13 @@ FactoryGirl.define do
     key 'site4'
   end
   
-  factory :topic do
+  factory :topic, :class => Topic do
     key 'topic'
     title 'my topic'
     url 'http://www.google.com'
   end
   
-  factory :comment do
+  factory :comment, :class => Comment do
     content 'a comment'
     author_ip '127.0.0.1'
     author_user_agent 'Firefox'
