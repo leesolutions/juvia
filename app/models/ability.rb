@@ -28,11 +28,12 @@ class Ability
     # Non-logged in users cannot do anything.
     # return if !user
 
-    can [:read], [Topic, Comment]
 
     crud = [:create, :read, :update, :destroy]
 
-    if user.admin?
+    if not user.nil?
+      can [:read], [Topic, Comment]
+    elsif user.admin?
       can crud, :all
       can :list, :all
       can :make_admin, User
