@@ -26,7 +26,9 @@ class Ability
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
 
     # Non-logged in users cannot do anything.
-    return if !user
+    # return if !user
+
+    can [:read], [Topic, Comment]
 
     crud = [:create, :read, :update, :destroy]
 

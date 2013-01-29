@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  before_filter :authenticate_user!
+  before_filter :authenticate_user! unless :public_content?
+
   check_authorization :if => :inside_admin_area?
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -34,5 +35,9 @@ private
 
   def inside_admin_area?
     controller_path =~ /\Aadmin/
+  end
+
+  def public_content?
+    true
   end
 end

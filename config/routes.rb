@@ -23,6 +23,8 @@ Juvia::Application.routes.draw do
     resources :topics
   end
   
+  resources :topics
+
   get 'admin/dashboard', :to => 'admin/dashboard#index', :as => :dashboard
   get 'admin/dashboard/new_admin', :to => 'admin/dashboard#new_admin'
   put 'admin/dashboard/create_admin', :to => 'admin/dashboard#create_admin'
