@@ -31,7 +31,7 @@ class Ability
 
     crud = [:create, :read, :update, :destroy]
 
-    if not user.nil?
+    if user.nil?
       can [:read], [Topic, Comment]
     elsif user.admin?
       can crud, :all
