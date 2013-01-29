@@ -80,6 +80,7 @@ if (!Juvia) {
 			$this.bind('click', function() {
 				var comment = $(this).closest('.juvia-comment');
 				self.replyToComment(comment);
+        return false;
 			});
 		});
 	}

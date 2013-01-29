@@ -6,15 +6,14 @@ class="juvia-add-comment-form">
     <legend>Add Your Thoughts</legend>
 
     <div class="juvia-data">
-      <label for="comment">
-        Comment
-        <div class="juvia-field juvia-textarea-field">
+      <div class="juvia-field juvia-textarea-field">
+        <label for="comment">
+          Comment
           <textarea name="content" cols="80" rows="14" class="input-text"></textarea>
-          <span class="sublabel">3000 characters left</span>
-        </div>
-      </label>
+        </label>
+      </div>
     </div>
-    
+
     <div class="juvia-metadata">
       <label for="name" class="left">
         Name (optional)
@@ -22,7 +21,7 @@ class="juvia-add-comment-form">
           <div class="juvia-input"><input type="text" name="author_name" class="input-text"></div>
         </div>
       </label>
-      
+
       <label for="email" class="left">
         Email (optional)
         <a href="javascript:void(0)" class="juvia-help">[?]</a>
@@ -39,26 +38,24 @@ class="juvia-add-comment-form">
         </div>
       </label>
     </div>
-    
-    <fieldset class="button-bar">
-      <div class="juvia-form-actions">
-        <div class="juvia-action juvia-submit-button">
-          <input type="submit" value="Submit" id="add-comment" class="submit"/>
-        </div>
-        <div class="juvia-action juvia-submitting-button" style="display: none">
-          <input type="submit" value="Submitting, please wait..." disabled />
-        </div>
-        <div class="juvia-error" style="display: none"></div>
-      </div>
-    </fieldset>
 
+    <div class="juvia-form-actions">
+      <div class="juvia-action juvia-submit-button">
+        <input type="submit" value="Submit" id="add-comment" class="submit"/>
+      </div>
+      <div class="juvia-action juvia-submitting-button" style="display: none">
+        <input type="submit" value="Submitting, please wait..." disabled />
+      </div>
+      <div class="juvia-error" style="display: none"></div>
+    </div>
+
+    <div class="juvia-preview">
+      <div class="juvia-preview-empty">
+        Comments can be styled with <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a>.
+        Type something and a preview will show up here.
+        <div class="juvia-self-ad">This commenting system is powered by <a href="<%= JUVIA_GITHUB_PAGE %>">Juvia</a>.</div>
+      </div>
+      <div class="juvia-preview-content" style="display: none"></div>
+    </div>
   </fieldset>
-	
-	<div class="juvia-preview">
-		<div class="juvia-preview-empty">
-			Comments can be styled with <a target="_blank" href="http://daringfireball.net/projects/markdown/basics">Markdown</a>.
-			Type something and a preview will show up here.
-		</div>
-		<div class="juvia-preview-content" style="display: none"></div>
-	</div>
 </form>

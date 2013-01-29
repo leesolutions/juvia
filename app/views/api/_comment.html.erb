@@ -1,21 +1,28 @@
-<div class="comment" id="juvia-comment-<%= comment.id %>">
-	<div class="juvia-data">
-		<div class="juvia-comment-content">
-			<% if comment.moderation_status != :ok %>
-				<p class="juvia-moderating">
-					This comment is currently under moderation
-					and won't show up until approved by the
-					administrator.
-				</p>
-			<% end %>
-			<div class="juvia-comment-pure-content"><%= render_markdown(comment.content) %></div>
-		</div>
-	</div>
-	<div class="metadata">
-    <span class="name"><%= comment.author_name || 'Anonymous' %></span>
+<div class="juvia-comment comment" id="juvia-comment-<%= comment.id %>">
+  <div class="juvia-data">
+    <div class="juvia-comment-content">
+      <% if comment.moderation_status != :ok %>
+        <p class="juvia-moderating">
+          This comment is currently under moderation
+          and won't show up until approved by the
+          administrator.
+        </p>
+      <% end %>
+      <div class="juvia-comment-pure-content"><%= render_markdown(comment.content) %></div>
+    </div>
+  </div>
+  <div class="juvia-metadata">
+    <span class="juvia-author juvia-author-without-email">
+      <%= comment.author_name || 'Anonymous' %>
+    </span>
     |
-    <span class="datetime"><%= comment.created_at.strftime("%l:%M %P, %B %e, %Y") %></span>
-    <br/>
-    [<a href="javascript:void(0)">reply to this comment</a>]
+    <span class="juvia-creation-date">
+      <%= comment.created_at.strftime("%B %d %Y, %H:%M") %>
+    </span>
+    <br/> 
+    <span class="juvia-reply-to-comment">
+      <a href="javascript:void(0)">Reply to this comment</a>
+    </span>
+    <div class="juvia-end"></div>
   </div>
 </div>
