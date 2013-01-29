@@ -1,1 +1,22 @@
-<h1>Individual Topic </h1>
+<h1><%= @topic.title %></h1>
+<div id="comments" class="juvia-container"
+	data-site-key="<%= @topic.site.key %>"
+	data-topic-key="<%= @topic.key %>"
+	data-topic-title="<%= @topic.title %>"
+	data-topic-url="<%= @topic.url %>">
+  <% define(@topic.comments.visible) do |comments| %>
+    <h4 class="juvia-comment-count-header">
+      Reader Comments
+    </h4>
+    <div class="juvia-topic">
+      <% if comments.empty? %>
+        <div class="juvia-comments juvia-no-comments">There are no comments yet.</div>
+      <% else %>
+        <div class="juvia-comments">
+          <%= render :partial => 'api/comment', :collection => comments%>
+        </div>
+      <% end %>
+      <%= render :partial => 'api/form' %>
+    </div>
+  <% end %>
+</div> <!-- juvia-container -->

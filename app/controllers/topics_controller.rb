@@ -1,7 +1,5 @@
 class TopicsController < ApplicationController
-  def index
-    @topics = Topic.all
-  end
+  load_and_authorize_resource
   def show
   end
 end
