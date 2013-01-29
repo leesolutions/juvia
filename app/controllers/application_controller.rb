@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  before_filter :authenticate_user! unless :public_content?
+  before_filter :authenticate_user!
 
   check_authorization :if => :inside_admin_area?
 
@@ -13,15 +13,11 @@ private
   ### before filters
   
   def require_admin!
-    if !current_user.admin?
-      render :template => 'shared/admin_required'
-    end
+    render :template => 'shared/admin_required' if !current_user.admin?
   end
   
   def save_return_to_url
-    if (path = params[:return_to]) && path =~ /\A\//
-      session[:return_to] = path
-    end
+    session[:return_to] = path if (path = params[:return_to]) && path =~ /\A\//
   end
   
   
@@ -38,6 +34,10 @@ private
   end
 
   def public_content?
-    true
+    controller_name == "topics"
+  end
+
+  def authenticate_user!
+    super unless public_content?
   end
 end

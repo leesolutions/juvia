@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.visible.all
+    @topics = Topic.all
   end
   def show
   end
