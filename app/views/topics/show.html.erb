@@ -1,6 +1,6 @@
 <div id="juvia_container">
   <h1><%= @topic.title %></h1>
-  <h5><%= link_to "Back to eccu.org", @topic.url %></h5>
+  <p>Comments from <%= link_to @topic.url, @topic.url %></p>
   <div id="comments" class="juvia-container"
     data-site-key="<%= @topic.site.key %>"
     data-topic-key="<%= @topic.key %>"
