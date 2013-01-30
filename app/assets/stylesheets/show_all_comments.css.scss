@@ -1,5 +1,13 @@
+@import "compass/utilities/general/clearfix";
+
 #juvia_container {
   margin-top: 50px;
+  .juvia-data, .juvia-data, .juvia-metadata, .juvia-form-actions {
+    @include clearfix;
+  }
+  .juvia-form-actions {
+    margin-bottom: 20px;
+  }
   .juvia-topic {
     padding: 30px 15px 15px 15px;
   }

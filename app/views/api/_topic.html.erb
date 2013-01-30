@@ -6,7 +6,7 @@
   <% define(topic.comments.visible) do |comments| %>
     <h4 class="juvia-comment-count-header">
       Reader Comments
-      <%= link_to "Read all comments (#{comments.size})", topic_path(topic) if comments.size > 3 %>
+      <%= link_to "Read all comments (#{comments.size})", "#{app_host}#{topic_path(topic)}", :target => :_blank if comments.size > 3 %>
     </h4>
     <div class="juvia-topic">
       <% if comments.empty? %>
