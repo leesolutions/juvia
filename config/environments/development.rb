@@ -26,4 +26,6 @@ Juvia::Application.configure do
   config.assets.compress = false
   
   config.sass.line_comments = true
+
+  ActionController::Base.asset_host = "http://localhost:3001"
 end

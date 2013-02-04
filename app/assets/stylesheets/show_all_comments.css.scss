@@ -3,7 +3,8 @@
 #juvia_container {
   margin-top: 50px;
   .juvia-data, .juvia-data, .juvia-metadata, .juvia-form-actions {
-    @include clearfix;
+    float: none;
+    clear: both;
   }
   .juvia-form-actions {
     margin-bottom: 20px;
@@ -20,7 +21,7 @@
       margin: 2em 0px 3em 0px;
   }
   .input-text {
-      background: #fff url(image-path('input-bg.gif')) no-repeat top left;
+      background: #fff url(image_url('input-bg.gif')) no-repeat top left;
         padding: 6px;
   }
   fieldset, img {
@@ -135,7 +136,7 @@ clear:both;
 padding:10px 0;
 }
 #comments form #add-comment {
-background-image:url(image-path('swt-btn-add-comment.png'));
+background-image:url(image_path('swt-btn-add-comment.png'));
 background-position:top left;
 background-repeat:no-repeat;
 border:none;

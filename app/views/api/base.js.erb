@@ -53,8 +53,8 @@ if (!Juvia) {
 				var content = $this.parent().find('.juvia-help-content');
 				var offset = $this.position();
 				content.css({
-					left: offset.left + 'px',
-					top: (offset.top + $this.outerHeight() + 8) + 'px'
+					left: (offset.left - 35) + 'px',
+					top: (offset.top + $this.outerHeight() + 38) + 'px'
 				});
 				content.show();
 			});
@@ -93,12 +93,15 @@ if (!Juvia) {
 			'"]');
 	}
 	
-	Juvia.showFormError = function(container, message) {
-		var div = $('.juvia-form-actions .juvia-error', container);
+	Juvia.showFormError = function(container, options) {
+    var message = options ? options.text : null;
+		var div = $('.juvia-error', container);
 		if (message == undefined || message == null || message == '') {
 			div.hide();
 		} else {
 			div.text(message).show();
+      $("#juvia_container form [name]").removeClass('highlight-error');
+      $("#juvia_container form [name='"+options.field_name+"']").addClass('highlight-error');
 		}
 	}
 	
@@ -214,7 +217,7 @@ if (!Juvia) {
 	
 	Juvia.handleShowFormError = function(options) {
 		var container = this.findContainer(options);
-		this.showFormError(container, options.text);
+		this.showFormError(container, options);
 		this.setSubmitting(container, false);
 	}
 	
