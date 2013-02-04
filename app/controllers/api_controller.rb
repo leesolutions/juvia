@@ -53,6 +53,12 @@ class ApiController < ApplicationController
       if @content.blank?
         render :partial => 'content_may_not_be_blank'
         return
+      elsif params[:author_name].blank?
+        render :partial => 'author_name_may_not_be_blank'
+        return
+      elsif params[:author_email].blank?
+        render :partial => 'author_email_may_not_be_blank'
+        return
       end
       
       Topic.transaction do
@@ -69,6 +75,7 @@ class ApiController < ApplicationController
             :author_user_agent => request.env['HTTP_USER_AGENT'],
             :referer => request.env['HTTP_REFERER'],
             :content => @content)
+          @comment
           render
         else
           render :partial => 'site_not_found'

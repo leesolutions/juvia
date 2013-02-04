@@ -14,7 +14,7 @@ class Comment < ActiveRecord::Base
   scope :requiring_moderation, where("moderation_status != #{moderation_status(:ok)}")
   scope :recent, lambda {|n| last(n).reverse}
   
-  validates_presence_of :content
+  validates_presence_of :content, :author_name, :author_email
   validates_presence_of :author_ip
   
   before_validation :nullify_blank_fields
