@@ -8,3 +8,4 @@
   options[:css] = Juvia::Application.assets.find_asset('api.css').body if @include_css
 %>
 <%= juvia_handle_response(options) %>
+<%= render 'eccu_offsite_link_modal' %>

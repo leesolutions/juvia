@@ -1,0 +1,38 @@
+jQuery(function() {
+  var ECCU = {
+    confirm_offsite_link:function(e) {
+      e.preventDefault();
+      var url = $(this).attr('href');
+      $('#offsiteLinkModalContent').modal({overlay:60, close:false});
+      $('#offsiteLinkModalContent a.continue').click(function(e){
+        e.preventDefault();
+        window.open(url);
+        $.modal.close();
+      });
+    }
+    ,confirm_submit:function(e) {
+      var form = $(this).parents("form");
+      e.preventDefault();
+      $('#offsiteLinkModalContent').modal({overlay:60, close:false});
+      $('#offsiteLinkModalContent a.continue').click(function(e){
+        e.preventDefault();
+        form.submit();
+        $.modal.close();
+      }); 
+    }
+  };
+
+  $(document).ready(function() {
+    $("#juvia_container form.confirm-submit input[type='submit'], form.confirm-submit input[type='image']").bind("click", ECCU.confirm_submit);
+    $("#juvia_container a[href]:not([data-offsite-allowed='true'])").each(function(){
+      if (!$(this).attr('href').match(/^mailto:/i) && !this.hostname.match(/(eccuparticipations.com|flourishatwork.com|eccuevents.com|mychurchloan.com|eccu.org|localhost.dev|eccu.local|lvh.me|eccu.xen|eccu.staging|eccu.xen2)(:\d+)?$/i)){
+        $(this).click(ECCU.confirm_offsite_link);
+      } else if($(this).attr('href').match(/\.pdf$/i)) {
+        $(this).click(function(e){
+          e.preventDefault();
+          window.open($(this).attr('href'));
+        });
+      }
+    });
+  });
+});

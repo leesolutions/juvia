@@ -6,6 +6,8 @@ class Comment < ActiveRecord::Base
   class AkismetError < StandardError
   end
 
+  EMAIL_FORMAT = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+
   belongs_to :topic, :inverse_of => :comments
   
   acts_as_enum :moderation_status, [:ok, :unchecked, :spam]
@@ -14,8 +16,10 @@ class Comment < ActiveRecord::Base
   scope :requiring_moderation, where("moderation_status != #{moderation_status(:ok)}")
   scope :recent, lambda {|n| last(n).reverse}
   
-  validates_presence_of :content, :author_name, :author_email
-  validates_presence_of :author_ip
+  validates :content, :presence => true
+  validates :author_name, :presence => true
+  validates :author_email, :presence => true, :format => {:with => EMAIL_FORMAT}
+  validates :author_ip, :presence => true
   
   before_validation :nullify_blank_fields
   before_create :set_moderation_status

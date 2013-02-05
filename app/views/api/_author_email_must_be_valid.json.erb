@@ -1,0 +1,8 @@
+<%= {
+  :status    => 'ok',
+  :action    => 'ShowFormError',
+  :site_key  => @site_key,
+  :topic_key => @topic_key,
+  :text      => "E-mail must be valid.",
+  :field_name=> "author_email"
+}.to_json.html_safe %>
