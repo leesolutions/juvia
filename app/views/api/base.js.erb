@@ -283,6 +283,7 @@ if (!Juvia) {
 		$textarea.val(newContent);
 		this.smoothlyScrollTo($textarea.offset().top);
 		$textarea.focus();
+    this.previewComment($textarea);
 	}
 
 	/* The browser does not save the content of the Juvia comments box when
@@ -520,4 +521,5 @@ if (!Juvia) {
 			Juvia[name] = $.proxy(Juvia[name], Juvia);
 		}
 	}
+
 })(Juvia);

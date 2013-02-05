@@ -59,6 +59,9 @@ class ApiController < ApplicationController
       elsif params[:author_email].blank?
         render :partial => 'author_email_may_not_be_blank'
         return
+      elsif not valid_email?
+        render :partial => 'author_email_must_be_valid'
+        return
       end
       
       Topic.transaction do
@@ -163,5 +166,9 @@ private
   def log_exception(e)
     logger.error("#{e.class} (#{e}):\n  " <<
       e.backtrace.join("\n  "))
+  end
+
+  def valid_email?
+    not (params[:author_email] =~ Comment::EMAIL_FORMAT).nil?
   end
 end
