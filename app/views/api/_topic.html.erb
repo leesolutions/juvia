@@ -1,8 +1,8 @@
 <div id="comments" class="juvia-container"
-	data-site-key="<%= @site_key %>"
-	data-topic-key="<%= @topic_key %>"
-	data-topic-title="<%= @topic_title %>"
-	data-topic-url="<%= @topic_url %>">
+	data-site-key="<%= topic.site.key %>"
+	data-topic-key="<%= topic.key %>"
+	data-topic-title="<%= topic.title %>"
+	data-topic-url="<%= topic.url %>">
   <% define(topic.comments.visible) do |comments| %>
     <h4 class="juvia-comment-count-header">
       Reader Comments

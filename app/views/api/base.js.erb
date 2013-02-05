@@ -161,7 +161,14 @@ if (!Juvia) {
 			$(style).appendTo(document.head || $('head')[0] || document.body);
 		}
 	}
-	
+
+  Juvia.handleUpdateTopic = function(options) {
+		var $container = this.findContainer(options);
+    $container.html(options.html);
+		this.reinstallBehavior();
+		this.smoothlyScrollTo($container.offset().top - 20);
+  }
+
 	Juvia.handleAddComment = function(options) {
 		var container = this.findContainer(options);
 		var comments = $('.juvia-comments', container);

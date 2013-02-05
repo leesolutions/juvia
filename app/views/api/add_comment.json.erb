@@ -1,7 +1,7 @@
 <%= {
   :status    => 'ok',
-  :action    => 'AddComment',
+  :action    => 'UpdateTopic',
   :site_key  => @site_key,
   :topic_key => @topic_key,
-  :html      => render(:partial => 'api/comment.html', :locals => { :comment => @comment })
+  :html      => render(:partial => 'api/topic.html', :locals => { :topic => @topic })
 }.to_json.html_safe %>
