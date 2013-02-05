@@ -26,6 +26,6 @@
 <script type="text/javascript">
   jQuery(function() {
     <%= render :template => 'api/base.js' %>
-    Juvia.reinstallBehavior();
+    Juvia.reinstallBehavior({add_comment_url: "/api/add_comment_to_all"});
   });
 </script>

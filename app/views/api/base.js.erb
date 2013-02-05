@@ -13,9 +13,17 @@ if (!Juvia) {
 	<%= File.read("#{Rails.root}/app/assets/javascripts/base64.js").html_safe %>
 	var $ = Juvia.$ = window.jQuery.noConflict(true);
 	
-	Juvia.reinstallBehavior = function() {
+	Juvia.reinstallBehavior = function(options) {
+    /* options must be either null or {add_comment_url:'[url]'} */
 		var self = this;
 		
+    console.log("Juvia.reinstallBehavior");
+    console.log(options);
+    options = options ? options : {add_comment_url: "/api/add_comment"};
+    this.options = options;
+    this.add_comment_url = options.add_comment_url;
+    console.log(Juvia.add_comment_url);
+
 		if (!$(document.body).hasClass('juvia-installed-behavior')) {
 			$(document.body).addClass('juvia-installed-behavior');
 			$(document.body).bind('mousedown touchdown', function(event) {
@@ -140,8 +148,9 @@ if (!Juvia) {
 	}
 	
 	Juvia.handleResponse = function(response) {
+    console.log("*Juvia.handleResponse*");
+    console.log(response.action);
 		this['handle' + response.action](response);
-		this.reinstallBehavior();
 	}
 	
 	Juvia.handleLoadTopic = function(options) {
@@ -160,12 +169,13 @@ if (!Juvia) {
 			}
 			$(style).appendTo(document.head || $('head')[0] || document.body);
 		}
+		this.reinstallBehavior();
 	}
 
   Juvia.handleUpdateTopic = function(options) {
 		var $container = this.findContainer(options);
     $container.html(options.html);
-		this.reinstallBehavior();
+    this.reinstallBehavior({add_comment_url: "/api/add_comment_to_all"});
 		this.smoothlyScrollTo($container.offset().top - 20);
   }
 
@@ -187,6 +197,7 @@ if (!Juvia) {
 		this.saveCommentBox(container);
 		this.smoothlyScrollTo(comment.offset().top - 20);
 		comment.hide().fadeIn(2000);
+    this.reinstallBehavior(Juvia.options);
 	}
 	
 	Juvia.handlePreviewComment = function(options) {
@@ -219,12 +230,14 @@ if (!Juvia) {
 		} else {
 			alert("Juvia unknown error");
 		}
+		this.reinstallBehavior();
 	}
 	
 	Juvia.handleShowFormError = function(options) {
 		var container = this.findContainer(options);
 		this.showFormError(container, options);
 		this.setSubmitting(container, false);
+		this.reinstallBehavior();
 	}
 	
 	Juvia.submitComment = function(event) {
@@ -232,7 +245,9 @@ if (!Juvia) {
 		var $container = $(form).closest('.juvia-container');
 		this.setSubmitting($container, true);
 		this.saveCommentBox($container);
-		this.loadScript('/api/add_comment', {
+    console.log("Juvia.submitComment");
+    console.log(Juvia.add_comment_url);
+		this.loadScript(Juvia.add_comment_url, {
 			site_key    : $container.data('site-key'),
 			topic_key   : $container.data('topic-key'),
 			topic_title : $container.data('topic-title'),

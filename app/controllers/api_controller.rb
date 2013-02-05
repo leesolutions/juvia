@@ -42,52 +42,12 @@ class ApiController < ApplicationController
     end
   end
   
+  def add_comment_to_all
+    add_comment_and_render
+  end
+
   def add_comment
-    prepare!(
-      [:site_key, :topic_key, :topic_title, :topic_url, :content],
-      [:html, :js, :json]
-    )
-    begin
-      @content = decompress(params[:content])
-      
-      if @content.blank?
-        render :partial => 'content_may_not_be_blank'
-        return
-      elsif params[:author_name].blank?
-        render :partial => 'author_name_may_not_be_blank'
-        return
-      elsif params[:author_email].blank?
-        render :partial => 'author_email_may_not_be_blank'
-        return
-      elsif not valid_email?
-        render :partial => 'author_email_must_be_valid'
-        return
-      end
-      
-      Topic.transaction do
-        @topic = Topic.lookup_or_create(
-          @site_key,
-          @topic_key,
-          params[:topic_title],
-          params[:topic_url])
-        if @topic
-          @comment = @topic.comments.create!(
-            :author_name => params[:author_name],
-            :author_email => params[:author_email],
-            :author_ip => request.env['REMOTE_ADDR'],
-            :author_user_agent => request.env['HTTP_USER_AGENT'],
-            :referer => request.env['HTTP_REFERER'],
-            :content => @content)
-          @comment
-          render
-        else
-          render :partial => 'site_not_found'
-        end
-      end
-    rescue => e
-      log_exception(e)
-      render :partial => 'internal_error'
-    end
+    add_comment_and_render
   end
   
   def preview_comment
@@ -171,4 +131,53 @@ private
   def valid_email?
     not (params[:author_email] =~ Comment::EMAIL_FORMAT).nil?
   end
+
+  def add_comment_and_render
+    prepare!(
+      [:site_key, :topic_key, :topic_title, :topic_url, :content],
+      [:html, :js, :json]
+    )
+    begin
+      @content = decompress(params[:content])
+      
+      if @content.blank?
+        render :partial => 'content_may_not_be_blank'
+        return
+      elsif params[:author_name].blank?
+        render :partial => 'author_name_may_not_be_blank'
+        return
+      elsif params[:author_email].blank?
+        render :partial => 'author_email_may_not_be_blank'
+        return
+      elsif not valid_email?
+        render :partial => 'author_email_must_be_valid'
+        return
+      end
+      
+      Topic.transaction do
+        @topic = Topic.lookup_or_create(
+          @site_key,
+          @topic_key,
+          params[:topic_title],
+          params[:topic_url])
+        if @topic
+          @comment = @topic.comments.create!(
+            :author_name => params[:author_name],
+            :author_email => params[:author_email],
+            :author_ip => request.env['REMOTE_ADDR'],
+            :author_user_agent => request.env['HTTP_USER_AGENT'],
+            :referer => request.env['HTTP_REFERER'],
+            :content => @content)
+          @comment
+          render
+        else
+          render :partial => 'site_not_found'
+        end
+      end
+    rescue => e
+      log_exception(e)
+      render :partial => 'internal_error'
+    end
+  end
+
 end
