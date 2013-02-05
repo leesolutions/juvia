@@ -23,3 +23,9 @@
     <% end %>
   </div> <!-- juvia-container -->
 </div>
+<script type="text/javascript">
+  jQuery(function() {
+    <%= render :template => 'api/base.js' %>
+    Juvia.reinstallBehavior();
+  });
+</script>
