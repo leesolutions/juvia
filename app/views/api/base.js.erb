@@ -1,5 +1,5 @@
 // -*- Mode: SCSS; tab-width: 8; indent-tabs-mode: true; c-basic-offset: 8 -*-
-
+alert(1);
 var Juvia;
 if (!Juvia) {
 	Juvia = {};
@@ -457,7 +457,7 @@ if (!Juvia) {
 	}
 	
 	Juvia.adler32 = function(data) {
-		const MOD_ADLER = 65521;
+		var MOD_ADLER = 65521;
 		var a = 1, b = 0;
 		var index;
 		
