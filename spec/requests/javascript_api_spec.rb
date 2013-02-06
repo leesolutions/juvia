@@ -57,15 +57,6 @@ shared_examples "posting new comments with the Javascript API" do
     page.should have_css('textarea', :value => '')
   end
   
-  it "hides the preview box after posting", :js => true do
-    show_topic(@site_key, @topic_key)
-    fill_in 'content', :with => 'a *new* comment!'
-    page.should have_css('.juvia-preview-content', :visible => true)
-    click_button 'Submit'
-    page.should have_css('.juvia-preview-empty', :visible => true)
-    page.should have_css('.juvia-preview-content', :visible => false)
-  end
-  
   it "saves all the necessary information about the author and the comment", :js => true do
     show_topic(@site_key, @topic_key)
     fill_in 'author_name', :with => 'Kotori'

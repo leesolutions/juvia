@@ -54,6 +54,8 @@ FactoryGirl.define do
     author_ip '127.0.0.1'
     author_user_agent 'Firefox'
     referer 'http://www.google.com/'
+    author_name 'Hiroshi'
+    author_email 'hiroshi@yahoo.jp'
   end
 end
 
