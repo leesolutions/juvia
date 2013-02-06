@@ -17,12 +17,10 @@ if (!Juvia) {
     /* options must be either null or {add_comment_url:'[url]'} */
 		var self = this;
 		
-    console.log("Juvia.reinstallBehavior");
-    console.log(options);
     options = options ? options : {add_comment_url: "/api/add_comment"};
-    this.options = options;
-    this.add_comment_url = options.add_comment_url;
-    console.log(Juvia.add_comment_url);
+
+    self.options = options;
+    self.add_comment_url = options.add_comment_url;
 
 		if (!$(document.body).hasClass('juvia-installed-behavior')) {
 			$(document.body).addClass('juvia-installed-behavior');
@@ -148,8 +146,6 @@ if (!Juvia) {
 	}
 	
 	Juvia.handleResponse = function(response) {
-    console.log("*Juvia.handleResponse*");
-    console.log(response.action);
 		this['handle' + response.action](response);
 	}
 	
@@ -195,7 +191,7 @@ if (!Juvia) {
 		container.find('form')[0].reset();
 		this.setSubmitting(container, false);
 		this.saveCommentBox(container);
-		this.smoothlyScrollTo(comment.offset().top - 20);
+		this.smoothlyScrollTo(comment.offset().top - 75);
 		comment.hide().fadeIn(2000);
     this.reinstallBehavior(Juvia.options);
 	}
@@ -245,8 +241,6 @@ if (!Juvia) {
 		var $container = $(form).closest('.juvia-container');
 		this.setSubmitting($container, true);
 		this.saveCommentBox($container);
-    console.log("Juvia.submitComment");
-    console.log(Juvia.add_comment_url);
 		this.loadScript(Juvia.add_comment_url, {
 			site_key    : $container.data('site-key'),
 			topic_key   : $container.data('topic-key'),
