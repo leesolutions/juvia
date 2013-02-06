@@ -45,284 +45,314 @@
 
           width: 100%;
   }
-#comments {
+  #comments {
     background-color:#f5f5f5;
-      clear:both;
-        margin-bottom:10px;
-          margin-top:45px; /* was 15px before h4 needed to be positioned higher */
-}
-#comments h4 {
-  font-weight: normal;
-    background:#444;
-      -moz-border-radius:8px;
-          -webkit-border-radius:8px;
-              border-radius:8px;
-                  color:#fff;
-                      font-size:1.2em;
-                          margin-bottom:-5px;
-                                  position:relative;
-                                      padding:15px;
-  a {
-    border-bottom: none;
+    clear:both;
+    margin-bottom:10px;
+    margin-top:45px; /* was 15px before h4 needed to be positioned higher */
   }
-}
-/* creates triangle */
-#comments h4:after {
-border-color: #444 transparent transparent transparent;
-border-width:15px 0 0 15px;
-border-style:solid;
-bottom:-15px;
-content:"";
-display:block;
-height:0;
-left:20px;
-position:absolute;
-width:0;
-}
+  #comments h4 {
+    font-weight: normal;
+    background:#444;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    border-radius:8px;
+    color:#fff;
+    font-size:1.2em;
+    margin-bottom:-5px;
+    position:relative;
+    padding:15px;
+    a {
+      border-bottom: none;
+    }
+  }
+  /* creates triangle */
+  #comments h4:after {
+    border-color: #444 transparent transparent transparent;
+    border-width:15px 0 0 15px;
+    border-style:solid;
+    bottom:-15px;
+    content:"";
+    display:block;
+    height:0;
+    left:20px;
+    position:absolute;
+    width:0;
+  }
 
-#unsticky-container #comments h4 {
-width:395px;
-}
-#comments h4 a {
-color:#fff;
-float:right;
-font-size:61%;
-margin-top:5px;
-}
-#comments form {
-background-color:#fff;
-  -moz-border-radius:8px;
+  #unsticky-container #comments h4 {
+    width:395px;
+  }
+  #comments h4 a {
+    color:#fff;
+    float:right;
+    font-size:61%;
+    margin-top:5px;
+  }
+  #comments form {
+    background-color:#fff;
+    -moz-border-radius:8px;
     -webkit-border-radius:8px;
     border-radius:8px;
     border:1px solid #ddd;
     margin-bottom:10px;
     padding:10px;
-}
-#comments form legend {
-color:#222;
-display:block;
-font-size:1.2em;
-padding-bottom:12px;
-}
-#comments form .sublabel {
-color:#555;
-clear:both;
-font-weight:normal;
-font-size: 12px;
-}
-#comments form label.left {
-float:left;
-width: 232px;
-&:first-child {
-  padding-right:20px;
-}
-input {
+  }
+  #comments form legend {
+    color:#222;
+    display:block;
+    font-size:1.2em;
+    padding-bottom:12px;
+  }
+  #comments form .sublabel {
+    color:#555;
+    clear:both;
+    font-weight:normal;
+    font-size: 12px;
+  }
+  #comments form label.left {
+    float:left;
     width: 232px;
-}
-}
-#comments form #name,
-#comments form #email {
-width:205px;
-}
-#unsticky-container #comments form #name {
-width:235px;
-}
-#unsticky-container #comments form #email {
-width:363px;
-}
-#comments form #state {
-width:115px;
-}
+    &:first-child {
+      padding-right:20px;
+    }
+    input {
+        width: 232px;
+    }
+  }
+  #comments form #name,
+  #comments form #email {
+    width:205px;
+  }
+  #unsticky-container #comments form #name {
+    width:235px;
+  }
+  #unsticky-container #comments form #email {
+    width:363px;
+  }
+  #comments form #state {
+    width:115px;
+  }
 
-#comments form .button-bar {
-clear:both;
-padding:10px 0;
-}
-#comments form #add-comment {
-background-image:url(image_path('swt-btn-add-comment.png'));
-background-position:top left;
-background-repeat:no-repeat;
-border:none;
-cursor:pointer;
-display:block;
-height:32px;
-text-indent:-999em;
-width:135px;
-}
-#comments form #add-comment span {
-margin-left:-999em;
-}
-#comments form input,
-#comments form textarea,
-#comments form select {
-border:1px solid #ddd;
-display:block;
-font-size:1.18em;
-font-weight:normal;
-}
-#comments form textarea {
-height:110px;
-}
-#unsticky-container #comments form textarea {
-width:363px;
-height:200px;
-}
-#comments form input#title {
-width:300px;
-}
-#comments form label {
-color:#555;
-display:block;
-font-size:12px;
-font-weight:bold;
-margin-bottom:10px;
-}
+  #comments form .button-bar {
+    clear:both;
+    padding:10px 0;
+  }
+  #comments form #add-comment {
+    background-image:url(image_path('swt-btn-add-comment.png'));
+    background-position:top left;
+    background-repeat:no-repeat;
+    border:none;
+    cursor:pointer;
+    display:block;
+    height:32px;
+    text-indent:-999em;
+    width:135px;
+  }
+  #comments form #add-comment span {
+    margin-left:-999em;
+  }
+  #comments form input,
+  #comments form textarea,
+  #comments form select {
+    border:1px solid #ddd;
+    display:block;
+    font-size:1.18em;
+    font-weight:normal;
+  }
+  #comments form textarea {
+    height:110px;
+  }
+  #unsticky-container #comments form textarea {
+    width:363px;
+    height:200px;
+  }
+  #comments form input#title {
+    width:300px;
+  }
+  #comments form label {
+    color:#555;
+    display:block;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:10px;
+  }
 
-#comments .call-to-action {
-padding:15px 15px 0;
-}
-#comments .call-to-action p {
-border-bottom:1px dashed #ddd;
-color:#666;
-font-size:1.2em;
-padding-bottom:15px;
-}
+  #comments .call-to-action {
+    padding:15px 15px 0;
+  }
+  #comments .call-to-action p {
+    border-bottom:1px dashed #ddd;
+    color:#666;
+    font-size:1.2em;
+    padding-bottom:15px;
+  }
 
-#comments ul#pagination {
-margin-top:0;
-padding:15px;
-}
+  #comments ul#pagination {
+    margin-top:0;
+    padding:15px;
+  }
 
-#comments .comment {
-border-bottom:1px dashed #ccc;
-padding-bottom:10px;
-margin-bottom: 15px;
-p {
-    margin-top: 0px;
-}
-&:last-child {
+  #comments .comment {
+    border-bottom:1px dashed #ccc;
+    padding-bottom:10px;
+    margin-bottom: 15px;
+    p {
+        margin-top: 0px;
+    }
+    &:last-child {
+        border-bottom:none;
+    }
+  }
+  #comments .last {
     border-bottom:none;
-}
-}
-#comments .last {
-border-bottom:none;
-padding:10px 15px;
-}
-#comments .comment blockquote p {
-color:#444;
-font-size:1.3em;
-line-height:1.7;
-margin-bottom:10px;
-}
-#comments .comment p.author {
-color:#777;
-font-size:1.1em;
-line-height:1.7;
-}
-#comments .comment p.author .name {
-color:#222;
-text-transform:uppercase;
-}
-#comments .comment p.author .datetime {
-border-left:1px solid #777;
-padding-left:3px;
-}
+    padding:10px 15px;
+  }
+  #comments .comment blockquote p {
+    color:#444;
+    font-size:1.3em;
+    line-height:1.7;
+    margin-bottom:10px;
+  }
+  #comments .comment p.author {
+    color:#777;
+    font-size:1.1em;
+    line-height:1.7;
+  }
+  #comments .comment p.author .name {
+    color:#222;
+    text-transform:uppercase;
+  }
+  #comments .comment p.author .datetime {
+    border-left:1px solid #777;
+    padding-left:3px;
+  }
 
-/* comment validation */
-#comment-form .validationfailed {
-border:1px solid #933;
-}
-#comments form label .failmessage {
-color:#933;
-}
+  /* comment validation */
+  #comment-form .validationfailed {
+    border:1px solid #933;
+  }
+  #comments form label .failmessage {
+    color:#933;
+  }
 
-/* captcha */
-#captcha-message {
-color:#555555;
-font-size: 1.1em;
-}
-#fail-message {
-color: #933;
-font-weight: bold;
-margin: 10px 0px;
-}
-body > iframe[src="about:blank"] {
+  /* captcha */
+  #captcha-message {
+    color:#555555;
+    font-size: 1.1em;
+  }
+  #fail-message {
+    color: #933;
+    font-weight: bold;
+    margin: 10px 0px;
+  }
+  body > iframe[src="about:blank"] {
     position: absolute;
-}
-#recaptcha_widget {
-border:1px solid #ddd;
-display:inline-block;
-padding:10px;
-width:348px;
-}
-.recaptcha_only_if_image {
-  color:#555;
-}
-#recaptcha_image {
-border:1px solid #ddd;
-float:left;
-}
-#recaptcha_input {
-clear:both;
-float:left;
-}
-#recaptcha_buttons {
-float:left;
-margin-bottom:10px;
-margin-left:10px;
-width:25px;
-}
-#recaptcha_buttons a {
-display:block;
-height:18px;
-margin-bottom:2px;
-}
-#recaptcha_logo {
-float:right;
-}
+  }
+  #recaptcha_widget {
+    border:1px solid #ddd;
+    display:inline-block;
+    padding:10px;
+    width:348px;
+  }
+  .recaptcha_only_if_image {
+    color:#555;
+  }
+  #recaptcha_image {
+    border:1px solid #ddd;
+    float:left;
+  }
+  #recaptcha_input {
+    clear:both;
+    float:left;
+  }
+  #recaptcha_buttons {
+    float:left;
+    margin-bottom:10px;
+    margin-left:10px;
+    width:25px;
+  }
+  #recaptcha_buttons a {
+    display:block;
+    height:18px;
+    margin-bottom:2px;
+  }
+  #recaptcha_logo {
+    float:right;
+  }
 
-/* fb comments */
-#fbcomments { 
-margin-left: -10px;
-}
+  /* fb comments */
+  #fbcomments { 
+    margin-left: -10px;
+  }
 
-/* comments off */
-#comments-off {
-background:#ffc;
-border:1px solid #ddd;
-color:#666;
-font-size:1.2em;
-margin:10px;
-padding:10px;
-text-align:center;
-}
+  /* comments off */
+  #comments-off {
+    background:#ffc;
+    border:1px solid #ddd;
+    color:#666;
+    font-size:1.2em;
+    margin:10px;
+    padding:10px;
+    text-align:center;
+  }
 
-/* report comments */
-form.flagform label {
-  color:#555;
-  display:block;
-  font-size:1.1em;
-  font-weight:bold;
-  margin-top:10px;
-}
-form.flagform input,
-form.flagform textarea {
-  border:1px solid #ddd;
-  width:293px;
-}
-form.flagform textarea {
-  height:80px;
-}
-form.flagform .submit {
-  background-image:url(image-path('button-report-comment.png'));
-  border:none;
-  cursor:pointer;
-  display:block;
-  height:32px;
-  text-indent:-999em;
-  width:155px;
-}
+  /* report comments */
+  form.flagform label {
+    color:#555;
+    display:block;
+    font-size:1.1em;
+    font-weight:bold;
+    margin-top:10px;
+  }
+  form.flagform input,
+  form.flagform textarea {
+    border:1px solid #ddd;
+    width:293px;
+  }
+  form.flagform textarea {
+    height:80px;
+  }
+  form.flagform .submit {
+    background-image:url(image-path('button-report-comment.png'));
+    border:none;
+    cursor:pointer;
+    display:block;
+    height:32px;
+    text-indent:-999em;
+    width:155px;
+  }
 
+  #comments .comment .juvia-comment-content {
+    font-size: 16px
+    p {
+      margin-bottom: 5px;
+    }
+    blockquote {
+      margin-left: 0px;
+      padding-left: 35px;
+      font-size: 14px;
+      p {
+        color: #999;
+        font-size: 1em;
+        line-height: 1em;
+      }
+    }
+  }
+  span.juvia-creation-date {
+    font-style: italic;
+    color: #666;
+  }
+  span.juvia-author.juvia-author-without-email {
+    font-weight: bold;
+  }
+  span.juvia-reply-to-comment a {
+    color: #c14b0d;
+    border-bottom: none;
+    &:hover {
+      border-bottom: 1px solid #c14b0d;
+    }
+  }
 }
 .juvia-help-content {
 	position: absolute;
@@ -389,3 +419,13 @@ form.flagform .submit {
 	margin-bottom: 0;
 }
 
+body.topics.show_all {
+  #juvia_container {
+    #comments .comment .juvia-comment-content {
+      blockquote {
+        margin-left: 0px;
+        padding-left: 20px;
+      }
+    }
+  }
+}
