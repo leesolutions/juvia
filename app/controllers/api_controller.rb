@@ -22,6 +22,10 @@ class ApiController < ApplicationController
     # Do nothing, response already sent.
   end
   
+  def juvia_base
+    render "base.js"
+  end
+
   def show_topic
     @topic_title = params[:topic_title]
     @topic_url   = params[:topic_url]

@@ -171,7 +171,7 @@ if (!Juvia) {
   Juvia.handleUpdateTopic = function(options) {
 		var $container = this.findContainer(options);
     $container.html(options.html);
-    this.reinstallBehavior({add_comment_url: "/api/add_comment_to_all"});
+    this.reinstallBehavior(Juvia.options);
 		this.smoothlyScrollTo($container.offset().top - 20);
   }
 
