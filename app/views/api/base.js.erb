@@ -226,14 +226,14 @@ if (!Juvia) {
 		} else {
 			alert("Juvia unknown error");
 		}
-		this.reinstallBehavior();
+		this.reinstallBehavior(Juvia.options);
 	}
 	
 	Juvia.handleShowFormError = function(options) {
 		var container = this.findContainer(options);
 		this.showFormError(container, options);
 		this.setSubmitting(container, false);
-		this.reinstallBehavior();
+		this.reinstallBehavior(Juvia.options);
 	}
 	
 	Juvia.submitComment = function(event) {
