@@ -101,7 +101,8 @@ if (!Juvia) {
 	Juvia.showFormError = function(container, options) {
     var message = options ? options.text : null;
 		var div = $('.juvia-error', container);
-		if (message == undefined || message == null || message == '') {
+    if ($.browser.msie && $.browser.version < 9) $(".juvia-data").css("margin-top","20px");
+    if (message == undefined || message == null || message == '') {
 			div.hide();
 		} else {
 			div.text(message).show();
