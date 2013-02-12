@@ -1,6 +1,6 @@
 source :rubygems
 
-gem 'rails', '3.1.10'
+gem 'rails', '3.1.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -14,6 +14,7 @@ gem 'will_paginate', '~> 3.0.pre4'
 gem 'css3buttons'
 gem 'cancan'
 gem 'inherited_resources'
+gem 'airbrake'
 
 # Deploy with Capistrano
 # gem 'capistrano'
