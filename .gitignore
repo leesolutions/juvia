@@ -9,3 +9,6 @@ tmp/**/*
 public/_test.html
 bin
 *.swp
+config/application.yml
+config/database.yml
+config/initializers/airbrake.rb
