@@ -28,4 +28,5 @@
     <%= render :template => 'api/base.js' %>
     Juvia.reinstallBehavior({add_comment_url: "/api/add_comment_to_all"});
   });
+  if ($.browser.msie && $.browser.version < 9) $(".juvia-action.juvia-submit-button input").attr("value","");
 </script>
